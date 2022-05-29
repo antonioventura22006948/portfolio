@@ -1,0 +1,25 @@
+{% extends 'portfolio/layout.html' %}
+
+    {% block main %}
+    <h3 class="hh33">Licenciatura</h3>
+    {% for course in courses %}
+        <p>
+            <div class="posts">
+                <div class="item1">{{ course.name }} </div>
+                <div class="item2">{{ course.age }}<br></div>
+                <div class="item3">{{ course.description }} // {% for obj in course.languages.all %}
+                        {{ obj.name }} //
+                    {% endfor %}</div>
+                <div class="item4">{{ course.theory_professors.name }} //
+                    {% for obj in course.practical_professor.all %}
+                        {{ obj.name }} //
+                    {% endfor %}
+                {% for obj in course.projects.all %}
+                        {{ obj.title }} //
+                    {% endfor %}
+                </div>
+            </div>
+        </p>
+   {% endfor %}
+        <a href="{% url 'portfolio:bachelors' %}">Create a course...</a>
+    {% endblock %}

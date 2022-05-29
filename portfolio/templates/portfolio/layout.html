@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/portfolio.png' %}">
+</head>
+<body>
+    <header>
+    <div>António Ventura</div>
+    <nav>
+      <a href="{% url 'portfolio:home' %}">home</a>
+      <a href="{% url 'portfolio:about' %}">about me</a>
+      {% comment %} ESTAS SÃO PARA POR NA ABOUT ME
+      <a href="{% url 'portfolio:education' %}">education</a>
+      <a href="{% url 'portfolio:skills' %}">skills</a>
+      <a href="{% url 'portfolio:bachelors' %}">bachelor's degree</a>
+      {% endcomment %}
+      <a href="{% url 'portfolio:projects' %}">projects</a>
+      <a href="{% url 'portfolio:web' %}">web</a>
+      {% comment %}
+      O quizz fica na WEB
+      <a href="{% url 'portfolio:quizz' %}">quizz</a>
+      {% endcomment %}
+      <a href="{% url 'portfolio:blog' %}">blog</a>
+      <a href="{% url 'portfolio:contact' %}">contact</a>
+      <a href="{% url 'portfolio:logout' %}">logout</a>
+      {% comment %}
+       Preciso Introduzir a contacto e alterar o rodapé
+      {% endcomment %}
+
+    </nav>
+  </header>
+
+  <main>
+      {% block main %}
+      {% endblock main %}
+  </main>
+
+  <footer>ULHT, 2022</footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+ {% extends 'portfolio/layout.html' %}
+
+    {% block main %}
+	    <h1>Projects</h1>
+            {% for project in projects %}
+        <p>
+            <div class="posts">
+                <div class="item1">{{ project.title }}</div>
+                <div class="item2"><img src="{{ project.image.url }}" alt=""> <br></div>
+                <div class="item3">{{ project.description }}</div>
+                <div class="item4">{{ project.year_made }}</div>
+            </div>
+        </p>
+   {% endfor %}
+        <h3 class="hh33">New Project</h3>
+    <br>
+    {% if request.user.is_authenticated %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+      <input type="submit" value="Gravar" class="btn btn-success">
+    </form>
+    {% else %}
+        <a href="{% url 'portfolio:login' %}">LOG ME IN</a>
+    {% endif %}
+            {% comment %}<div class="container">
+              <div>
+                <h2>Xadrex - FP</h2>
+                <p></p>
+              </div>
+
+              <div>
+                <h2>DeisiFlix</h2>
+                <p></p>
+              </div>
+
+              <div>
+                <h2>Jogo da Glória</h2>
+                <p></p>
+              </div>
+            </div>{% endcomment %}
+    {% endblock %}

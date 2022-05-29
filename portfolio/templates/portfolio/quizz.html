@@ -1,0 +1,50 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h2 class="hh33">Quizz</h2>
+    <h3>Web programming</h3>
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>Please write ur name</p>
+        <input type="text" id="name" name="name">
+
+        <p>Which languages are used for structure of a webpage?</p>
+        <input type="radio" id="language1" name="language" value="HTML">
+        <label for="language1">HTML</label><br>
+        <input type="radio" id="language2" name="language" value="CSS">
+        <label for="language2">CSS</label><br>
+        <input type="radio" id="language3" name="language" value="JS">
+        <label for="language3">JS</label><br><br>
+
+        <p>Which one is a better framework for larger projects?</p>
+        <input type="radio" id="framework1" name="framework" value="Django">
+        <label for="framework1">Django</label><br>
+        <input type="radio" id="framework2" name="framework" value="Flask">
+        <label for="framework2">Flask</label><br>
+
+        <p>Which one is a programming language?</p>
+        <input type="radio" id="language1" name="language1" value="HTML">
+        <label for="language1">HTML</label><br>
+        <input type="radio" id="language2" name="language1" value="CSS">
+        <label for="language2">CSS</label><br>
+        <input type="radio" id="language3" name="language1" value="JS">
+        <label for="language3">JS</label><br><br>
+
+        <p>Which one has a built-in Templates, Admin and ORM?</p>
+        <input type="radio" id="framework1" name="framework1" value="Django">
+        <label for="framework1">Django</label><br>
+        <input type="radio" id="framework2" name="framework1" value="Flask">
+        <label for="framework2">Flask</label><br>
+        <input type="radio" id="framework3" name="framework1" value ="Ruby on Rails">
+        <label for="framework3">Ruby on Rails</label><br>
+
+        <input type="submit" value="Gravar" class="btn btn-success">
+
+        <br><br>
+
+        {% load static %}
+        <img src="{% static 'portfolio/images/grafico.png' %}">
+
+</form>
+{% endblock %}
