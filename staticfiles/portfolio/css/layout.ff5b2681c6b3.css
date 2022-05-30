@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'San Francisco', 'BIZ UDPGothic', Helvetica, sans-serif;
+}
+
+body{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(cadetblue,darkseagreen);
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+header {
+  height: 10vh;
+  background-color: black;
+  color: white;
+  top: -20px;
+  position: sticky;
+  /* alinhando logo e menu */
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header div {
+  font-size: 1.5em;
+  padding: 1.5em;
+}
+
+header nav {
+  display:flex;
+  justify-content: flex-end;
+}
+
+nav a {
+  padding: 10px 15px;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: floralwhite;
+}
+
+header nav a:last-child{
+  border-radius: 30px;
+  background-size: 10px;
+  background-color: brown;
+}
+
+main {
+  padding: 4em 4em;
+}
+
+footer {
+  height:5vh;
+  display:flex;
+  justify-content: flex-end;
+  padding: 0 2vw;
+  align-items: center;
+  background-color: black;
+  color: snow;
+  clear: both;
+  position:fixed;
+   bottom:0;
+   width:100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 25px 100px;
+}
+
+.container div {
+  float: left;
+  width: 250px;   height: 150px;
+  padding: 25px;  margin: 10px;
+  background-color: black;
+  color: snow;
+  border-radius: 10px;                 /* arredonda os cantos */
+  box-shadow: 5px 5px 15px snow;
+}
+
+.after-box {
+  clear: left;
+  background-color: skyblue;
+}
+
+.hipnose{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  border-radius: 20px;
+  background-image: url("../images/hipnose.7fa48ab16462.gif");
+  background-size: cover;
+  background-position: center;
+}
+
+.motivation {
+  font-size: 2em;
+  font-weight: 900;
+  font-family: "DejaVu Sans", sans-serif;
+  background-image: linear-gradient(cadetblue,darkseagreen);
+  padding: 20px 20px 20px 20px;
+  border-radius: 20px;
+}
+
+article{
+  padding:20px 20px 20px 20px;
+  border-radius: 20px;
+  margin-top: 50px;
+  height: 90vh;
+  background-color: black;
+  color: snow;
+  box-shadow: 5px 5px 15px floralwhite;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.arrow{
+  display: block;
+  margin-top: -70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.posts{
+  display: grid;
+  grid-template:
+    'title title title title title title title'
+    'image desc desc desc desc desc desc'
+    'image desc desc desc desc desc desc'
+    'footer footer footer footer footer footer footer';
+  grid-gap: 10px;
+  margin: 20px;
+  background-color: black;
+  color: snow;
+  border-radius: 20px;                 /* arredonda os cantos */
+  box-shadow: 5px 5px 15px snow;
+}
+
+.posts > div{
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 10px;
+}
+
+.posts > div > img{
+  width: 80%;
+  height: 90%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.item1 {
+  box-sizing: border-box;
+  padding: 40px; margin: 20px;
+  border-radius: 20px;
+  background-image: linear-gradient(deeppink,red);
+  grid-area: title;
+  align-self: center;
+}
+.item2 {
+  box-sizing: border-box;
+  padding: 40px; margin: 20px;
+  border-radius: 20px;
+  background-image: linear-gradient(deeppink,red);
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item3 {
+  box-sizing: border-box;
+  padding: 40px; margin: 20px;
+  border-radius: 20px;
+  background-image: linear-gradient(deeppink,red);
+  grid-area: desc;
+  height: 90%;
+  overflow-y: auto;
+}
+.item4 {
+  box-sizing: border-box;
+  padding: 40px; margin: 20px;
+  border-radius: 50px;
+  background-image: linear-gradient(deeppink,red);
+  grid-area: footer;
+  align-self: end;
+}
+
+
+.hh33{
+  text-align: center;
+  font-size: 40px;
+}
