@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Post, Course, Language, Teacher, Project
+from .models import Post, Course, Language, Teacher, Project, Person, Link, TFC
 
 
 class CustomMMCF(forms.ModelMultipleChoiceField):
@@ -15,7 +15,7 @@ class PostForm(ModelForm):
         # inserção de classes CSS para formatação de cada campo do formulário
         widgets = {
             'title': forms.TextInput(attrs={'class': 'field', 'placeholder': 'Add Title...'}),
-            'description': forms.Textarea(attrs={'classe': 'field', 'placeholder': 'Add Description...'}),
+            'description': forms.Textarea(attrs={'class': 'field', 'placeholder': 'Add Description...'}),
             'author': forms.TextInput(attrs={'class': 'field', 'placeholder': 'Add your name...'}),
             'link': forms.TextInput(attrs={'class': 'field', 'placeholder': 'Add a link...', }),
             'image': forms.FileInput(attrs={'class': 'field', 'placeholder': 'Add a image...'})
@@ -125,11 +125,6 @@ class LanguageForm(ModelForm):
             'name': 'Name',
         }
 
-        # texto auxiliar a um determinado campo do formulário
-        help_texts = {
-        }
-
-
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
@@ -150,6 +145,73 @@ class ProjectForm(ModelForm):
             'year_made': 'Year',
         }
 
-        # texto auxiliar a um determinado campo do formulário
+
+class PersonForm(ModelForm):
+    class Meta:
+        model = Person
+        fields = '__all__'
+        # inserção de classes CSS para formatação de cada campo do formulário
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'field', 'placeholder': 'Add Name...'}),
+
+        }
+
+        labels = {
+            'name': 'Name',
+        }
+
+
+class LinkForm(ModelForm):
+    class Meta:
+        model = Link
+        fields = '__all__'
+        # inserção de classes CSS para formatação de cada campo do formulário
+        widgets = {
+            'link': forms.URLInput(attrs={'class': 'field', 'placeholder': 'Add Link...'}),
+        }
+
+        labels = {
+            'link': 'Link',
+        }
+
+
+class TFCForm(ModelForm):
+    class Meta:
+        model = TFC
+        fields = '__all__'
+        # inserção de classes CSS para formatação de cada campo do formulário
+        widgets = {
+            'year': forms.TextInput(attrs={'class': 'field', 'placeholder': 'Add Year...'}),
+            'title': forms.TextInput(attrs={'class': 'field', 'placeholder': 'Add Title...'}),
+            'description': forms.Textarea(attrs={'class': 'field', 'placeholder': 'Add Description...'}),
+            'image': forms.FileInput(attrs={'class': 'field', 'placeholder': 'Add Image...'}),
+            'file': forms.FileInput(attrs={'class': 'field', 'placeholder': 'Add File...'}),
+        }
+
+        students = CustomMMCF(
+            queryset=Person.objects.all(),
+            widget=forms.CheckboxSelectMultiple(attrs={'class': 'field', 'placeholder': 'Add Students...'})
+        )
+
+        advisors = CustomMMCF(
+            queryset=Teacher.objects.all(),
+            widget=forms.CheckboxSelectMultiple(attrs={'class': 'field', 'placeholder': 'Add Advisors...'})
+        )
+
+        links = CustomMMCF(
+            queryset=Link.objects.all(),
+            widget=forms.CheckboxSelectMultiple(attrs={'class': 'field', 'placeholder': 'Add Links...'})
+        )
+
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'title': 'Title',
+            'description': 'Description',
+            'image': 'Image',
+        }
+
         help_texts = {
+            'students': 'No students available add him <a href= "add_person"> -> click </a>',
+            'advisors': 'No teachers available add him <a href= "add_teacher" > -> click </a>',
+            'links': 'No project available create one <a href= "add_links"> -> click here </a>',
         }

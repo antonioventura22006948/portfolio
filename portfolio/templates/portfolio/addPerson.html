@@ -1,0 +1,21 @@
+{% extends 'portfolio/layout.html' %}
+
+    {% block main %}
+    <h3 class="hh33">Students</h3>
+    {% for person in persons %}
+        <p>
+            <div class="posts">
+                <div class="item1">{{ person.name }} </div>
+            </div>
+        </p>
+   {% endfor %}
+        {% if request.user.is_authenticated %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+      <input type="submit" value="Gravar" class="btn btn-success">
+    </form>
+    {% else %}
+        <a href="{% url 'portfolio:login' %}">LOG ME IN</a>
+    {% endif %}
+    {% endblock %}

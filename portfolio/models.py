@@ -62,3 +62,22 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name[:50]
+
+
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+
+
+class Link(models.Model):
+    link = models.URLField()
+
+
+class TFC(models.Model):
+    students = models.ManyToManyField(Person)
+    advisors = models.ManyToManyField(Teacher)
+    year = models.IntegerField()
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    image = models.ImageField(upload_to='tfcs/')
+    file = models.FileField()
+    links = models.ManyToManyField(Link)

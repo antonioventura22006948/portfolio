@@ -2,20 +2,23 @@
 
     {% block main %}
         {% load static %}
-        <div class="hipnose">
-            <p class="motivation">JUST DO IT</p>
+        <div class="imagem_para_motivacao">
+            <p class="motivation">Seja humilde para admitir seus erros, inteligente para aprender com eles e maduro para corrigi-los.</p>
         </div>
 
-
-
         {% load static %}
+        <p id="time"></p>
+        <br>
         <img src="{% static 'portfolio/images/arrow.gif' %}" class="arrow">
 
-        <article>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.
-            O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,
-            quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não
-            só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente
-            inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham
-            passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker
-            que incluem versões do Lorem Ipsum.</article>
+        <article>
+            Hey<br><br>
+            I'm Antonio and currently taking a bachelor's degree in computer engineering<br>
+            at Lusófona and I'm becoming more and more interested in this field.<br>I would also like to have some basics
+            with UX and UI design.
+            <br>
+        </article>
+
+        {% load static %}
+        <p id="temp">Loading...</p>
     {% endblock %}

@@ -13,8 +13,8 @@ from matplotlib import pyplot as plt
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 
-from .forms import PostForm, CourseForm, ProjectForm, TeacherForm, LanguageForm
-from .models import Post, PontuacaoQuizz, Course, Project, Teacher, Language
+from .forms import PostForm, CourseForm, ProjectForm, TeacherForm, LanguageForm, PersonForm, LinkForm, TFCForm
+from .models import Post, PontuacaoQuizz, Course, Project, Teacher, Language, Person, Link, TFC
 
 
 def home_page_view(request):
@@ -46,6 +46,7 @@ def education_page_view(request):
 
 def projects_page_view(request):
     projects = Project.objects.all()
+    tfcs = TFC.objects.all()
     form = ProjectForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -53,7 +54,8 @@ def projects_page_view(request):
 
     context = {
         'form': form,
-        'projects': projects
+        'projects': projects,
+        'tfcs': tfcs
     }
     return render(request, 'portfolio/projects.html', context)
 
@@ -205,7 +207,51 @@ def add_Language_view(request):
 
     context = {
         'form': form,
-        'langauges': languages
+        'languages': languages
     }
 
     return render(request, 'portfolio/addLanguage.html', context)
+
+
+def add_Person_view(request):
+    people = Person.objects.all()
+    form = PersonForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:about'))
+
+    context = {
+        'form': form,
+        'people': people
+    }
+    return render(request, 'portfolio/addPerson.html', context)
+
+
+def add_Link_view(request):
+    links = Link.objects.all()
+    form = LinkForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:about'))
+
+    context = {
+        'form': form,
+        'links': links
+    }
+    return render(request, 'portfolio/addLinks.html', context)
+
+
+def add_TFCs_view(request):
+    tfcs = TFC.objects.all()
+    form = TFCForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:about'))
+
+    context = {
+        'form': form,
+        'tfc': tfcs
+    }
+    return render(request, 'portfolio/addTFCs.html', context)
+
+

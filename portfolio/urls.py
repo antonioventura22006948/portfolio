@@ -22,5 +22,8 @@ urlpatterns = [
     path('web', views.web_page_view, name='web'),
     path('contact', views.contact_page_view, name='contact'),
     path('add_teacher', views.add_Teacher_view, name='add_teacher'),
-    path('add_language', views.add_Language_view, name='add_teacher')
+    path('add_language', views.add_Language_view, name='add_teacher'),
+    path('add_person', views.add_Person_view, name='add_person'),
+    path('add_links', views.add_Link_view, name='add_links'),
+    path('add_tfc', views.add_TFCs_view, name='add_tfc'),
 ]

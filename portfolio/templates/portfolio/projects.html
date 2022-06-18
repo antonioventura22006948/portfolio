@@ -2,7 +2,7 @@
 
     {% block main %}
 	    <h1>Projects</h1>
-            {% for project in projects %}
+            {%for project in projects %}
         <p>
             <div class="posts">
                 <div class="item1">{{ project.title }}</div>
@@ -10,8 +10,32 @@
                 <div class="item3">{{ project.description }}</div>
                 <div class="item4">{{ project.year_made }}</div>
             </div>
+            {% endfor %}
         </p>
-   {% endfor %}
+
+        <h1>TFCs</h1>
+            {% for tfc in tfcs%}
+        <p>
+            <div class="posts">
+                <div class="item1">{{ tfc.title }}</div>
+                <div class="item2"><img src="{{ tfc.image.url }}" alt="">
+                    {% for obj in tfc.students.all %}
+                        {{ obj.name }} //
+                    {% endfor %}<br></div>
+                <div class="item3">{{ tfc.description }}
+                    {% for obj in tfc.advisors.all %}
+                        {{ obj.name }} //
+                    {% endfor %}{{ tfc.file }}</div>
+                <div class="item4">{{ tfc.year }}
+                    {% for obj in tfc.links %}
+                        {{ obj.link }} //
+                    {% endfor %}</div>
+                    </div>
+                <br>
+            </div>
+        </p>
+            {% endfor %}
+            <a class=""  href="{% url 'portfolio:add_tfc' %}">Create a tfc...</a>
         <h3 class="hh33">New Project</h3>
     <br>
     {% if request.user.is_authenticated %}
@@ -23,20 +47,4 @@
     {% else %}
         <a href="{% url 'portfolio:login' %}">LOG ME IN</a>
     {% endif %}
-            {% comment %}<div class="container">
-              <div>
-                <h2>Xadrex - FP</h2>
-                <p></p>
-              </div>
-
-              <div>
-                <h2>DeisiFlix</h2>
-                <p></p>
-              </div>
-
-              <div>
-                <h2>Jogo da Glória</h2>
-                <p></p>
-              </div>
-            </div>{% endcomment %}
     {% endblock %}

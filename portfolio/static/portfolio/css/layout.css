@@ -6,19 +6,24 @@
   font-family: 'San Francisco', 'BIZ UDPGothic', Helvetica, sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
+
 body{
   min-height: 100vh;
   width: 100%;
-  background-image: linear-gradient(cadetblue,darkseagreen);
+  background-image: linear-gradient(to top, #bcaaa4, #efdcd5);
   background-repeat: no-repeat;
   background-color: black;
+  overflow-y: scroll;
 }
 
 header {
-  height: 10vh;
+  height: 8vh;
   background-color: black;
   color: white;
-  top: -20px;
+  top: 0;
   position: sticky;
   /* alinhando logo e menu */
   display:flex;
@@ -26,28 +31,87 @@ header {
   align-items: center;
 }
 
+nav > .a-menu:before {
+  content: "";
+  position: absolute;
+  background-color: #c97b63;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: -2;
+}
+nav > .a-menu:hover:before,
+nav > .a-menu:focus:before {
+  animation: .5s forwards hover-v linear;
+  animation-fill-mode: forwards;
+}
+@keyframes hover-v {
+  0% {
+      transform: scaleX(0);
+      height: 0;
+     }
+
+  10% {
+      transform: scaleX(0);
+      height: 5px;
+     }
+
+  50% {
+      transform: scaleX(1.05);
+      height: 5px;
+     }
+
+  100% {
+      transform: scaleX(1.05);
+      height: 100%;
+     }
+}
+
 header div {
   font-size: 1.5em;
-  padding: 1.5em;
+  padding: 0 0 0 1.5em;
 }
 
 header nav {
   display:flex;
   justify-content: flex-end;
+  height: 100%;
 }
 
 nav a {
-  padding: 10px 15px;
-  margin-right: 20px;
+  position: relative;
+  padding: 10px 30px;
   text-decoration: none;
   font-size: 1rem;
   color: floralwhite;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header nav a:last-child{
-  border-radius: 30px;
   background-size: 10px;
-  background-color: brown;
+  padding: 0 35px;
+  margin: 0;
+}
+
+nav a:last-child:before {
+  content: "";
+  position: absolute;
+  background-color: #ba6b6c;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  z-index: -2;
+}
+
+nav a:last-child:hover:before,
+nav a:last-child:focus:before {
+  animation: .5s forwards hover-v linear;
+  animation-fill-mode: forwards;
 }
 
 main {
@@ -94,25 +158,25 @@ h1 {
   background-color: skyblue;
 }
 
-.hipnose{
+.imagem_para_motivacao{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 80vh;
   border-radius: 20px;
-  background-image: url("../images/hipnose.gif");
   background-size: cover;
   background-position: center;
 }
 
 .motivation {
-  font-size: 2em;
-  font-weight: 900;
+  font-size: 1.5em;
+  font-weight: 1000;
   font-family: "DejaVu Sans", sans-serif;
-  background-image: linear-gradient(cadetblue,darkseagreen);
+  background-image: linear-gradient(to top, #bcaaa4, #efdcd5);
   padding: 20px 20px 20px 20px;
   border-radius: 20px;
+
 }
 
 article{
@@ -204,4 +268,64 @@ article{
 .hh33{
   text-align: center;
   font-size: 40px;
+}
+
+#clock {
+  font-family: 'Orbitron', sans-serif;
+  color: #66ff99;
+  font-size: 56px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#temp {
+  display: block;
+  background: linear-gradient(to top, #bcaaa4, #efdcd5) no-repeat fixed center;
+  background-size: cover;
+  padding: 30px;
+  margin-bottom: 3em;
+  margin-right: 3em;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-radius: 30px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  font-size: 20px;
+}
+
+#time {
+  display: block;
+  background: linear-gradient(to top, #bcaaa4, #efdcd5) no-repeat fixed center;
+  background-size: cover;
+  padding: 30px;
+  margin-bottom: 3em;
+  margin-left: 3em;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-radius: 30px;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  font-size: 20px;
+}
+
+
+form {
+  display: block;
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+}
+
+.field{
+  background: linear-gradient(to top, #bcaaa4, #efdcd5) no-repeat fixed center;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.helptext {
+  display: block;
+  font-size: .5em;
 }

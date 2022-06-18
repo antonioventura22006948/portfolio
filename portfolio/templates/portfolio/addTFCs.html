@@ -1,0 +1,14 @@
+{% extends 'portfolio/layout.html' %}
+
+    {% block main %}
+    <h3 class="hh33">Create TFCs</h3>
+    {% if request.user.is_authenticated %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+      <input type="submit" value="Gravar" class="btn btn-success">
+    </form>
+    {% else %}
+        <a href="{% url 'portfolio:login' %}">LOG ME IN</a>
+    {% endif %}
+    {% endblock %}
